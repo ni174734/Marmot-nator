@@ -9,9 +9,8 @@ Like this:
     music files in Music
     sound effects in Sounds
     scripts in Scripts
-    
-    Player -> playerMovement, etc
-    Marmot AI -> 
-    Dog AI -> 
-    Pest Control AI -> 
-    Manager Files -> sceneManager
+        Player -> playerMovement, etc
+        Marmot AI -> 
+        Dog AI -> 
+        Pest Control AI -> 
+        Manager Files -> sceneManager
