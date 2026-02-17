@@ -4,10 +4,12 @@
 ## Place your scripts, images, files, etc. in separate folders please.
 Organize neatly and accordingly!
 Like this:
-  sprite images in Sprites 
-  music files in Music
-  sound effects in Sounds
-  scripts in Scripts
+    
+    sprite images in Sprites 
+    music files in Music
+    sound effects in Sounds
+    scripts in Scripts
+    
     Player -> playerMovement, etc
     Marmot AI -> 
     Dog AI -> 
