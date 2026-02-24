@@ -14,3 +14,6 @@ Like this:
         Dog AI -> 
         Pest Control AI -> 
         Manager Files -> sceneManager
+# FOR ANY VERSION OF SCRIPTS, REMOVE THE VERSION NAME FROM THE FILE NAME
+Like this:
+> playerConrtoller~~_verX~~.cs
