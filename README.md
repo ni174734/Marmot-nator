@@ -17,4 +17,4 @@ Like this:
 # FOR ANY VERSION OF SCRIPTS, REMOVE THE VERSION NAME FROM THE FILE NAME
 Like this:
     
-    playerConrtoller<strike>_verX</strike>.cs
+    playerConrtoller~_verX~.cs
