@@ -54,6 +54,15 @@ public class playerController : MonoBehaviour
     private float coyoteTimer;
     private float jumpBufferTimer;
 
+    // Cache initial values for these fields
+    private float initMaxSpeed;
+    private float initAccel;         
+    private float initDecel;
+    private float initAirAccel;      
+    private float initJumpForce;
+
+    private float minSpeed;
+
     private bool IsGrounded()
     {
         if (groundCheck == null) return false;
@@ -139,18 +148,18 @@ public class playerController : MonoBehaviour
     private void OnEat(InputValue v)
     {
         // If the marmot's max speed is at or below the minimum speed, set it to the minimum speed and exit
-        if (maxSpeed <= maxSpeed / 2)
+        if (maxSpeed <= minSpeed)
         {
-            maxSpeed = maxSpeed / 2;
+            maxSpeed = minSpeed;
             return;
         }
 
         // Decrement the marmot's max speed, acceleration, deceleration, air acceleration, and jump force by 5% if he eats food
-        maxSpeed -= maxSpeed * 0.05f;
-        accel -= accel * 0.05f;
-        decel -= decel * 0.05f;
-        airAccel -= airAccel * 0.05f;
-        jumpForce -= 0.05f;
+        maxSpeed -=  initMaxSpeed * 0.05f;
+        accel -= initAccel * 0.05f;
+        decel -= initDecel * 0.05f;
+        airAccel -= initAirAccel * 0.05f;
+        jumpForce -= initJumpForce * 0.05f;
 
         Debug.Log("MaxSpeed: " + maxSpeed + " Accel: " + accel + " Decel: " + decel + "AirAccel:" + airAccel + " Jumpforce:" + jumpForce);
     }
@@ -158,6 +167,16 @@ public class playerController : MonoBehaviour
     private void OnPause()
     {
         pause.togglePause();
+    }
+
+    void Start()
+    {
+        initMaxSpeed = maxSpeed;
+        minSpeed = initMaxSpeed / 2;
+        initAccel = accel;
+        initDecel = decel;
+        initAirAccel = airAccel;
+        initJumpForce = jumpForce;
     }
 
     void Update()
