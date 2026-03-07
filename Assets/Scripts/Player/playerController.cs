@@ -11,8 +11,6 @@ public class playerController : MonoBehaviour
     [Header("Move")]
 	[Tooltip("Max player speed.")]
     [SerializeField] private float maxSpeed = 5f;
-    [Tooltip("Min player speed.")]
-    [SerializeField] private float minSpeed = 2.5f;
     [Tooltip("How fast you reach max speed.")]
     [SerializeField] private float accel = 60f;         // how fast you reach max speed
 	[Tooltip("How fast you stop.")]
@@ -141,20 +139,20 @@ public class playerController : MonoBehaviour
     private void OnEat(InputValue v)
     {
         // If the marmot's max speed is at or below the minimum speed, set it to the minimum speed and exit
-        if (maxSpeed <= minSpeed)
+        if (maxSpeed <= maxSpeed / 2)
         {
-            maxSpeed = minSpeed;
+            maxSpeed = maxSpeed / 2;
             return;
         }
 
-        // Decrement the marmot's max speed, acceleration, and deceleration by 5% if he eats food
-        maxSpeed -= 0.25f;
-        accel -= 3.0f;
-        decel -=3.0f;
+        // Decrement the marmot's max speed, acceleration, deceleration, air acceleration, and jump force by 5% if he eats food
+        maxSpeed -= maxSpeed * 0.05f;
+        accel -= accel * 0.05f;
+        decel -= decel * 0.05f;
+        airAccel -= airAccel * 0.05f;
+        jumpForce -= 0.05f;
 
-        // Decrement air acceleration and jump force by 2.5%
-        airAccel -= 0.88f;
-        jumpForce -= 0.35f;
+        Debug.Log("MaxSpeed: " + maxSpeed + " Accel: " + accel + " Decel: " + decel + "AirAccel:" + airAccel + " Jumpforce:" + jumpForce);
     }
 
     private void OnPause()
