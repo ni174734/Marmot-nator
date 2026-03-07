@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour
 	[Tooltip("Max player speed.")]
     [SerializeField] private float maxSpeed = 5f;
     [Tooltip("Min player speed.")]
-    [SerializeField] private float minSpeed = 2.5f
+    [SerializeField] private float minSpeed = 2.5f;
     [Tooltip("How fast you reach max speed.")]
     [SerializeField] private float accel = 60f;         // how fast you reach max speed
 	[Tooltip("How fast you stop.")]
